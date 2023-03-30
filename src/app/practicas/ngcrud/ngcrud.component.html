@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+  <title>Simulacion</title>
+</head>
+
+<body>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Crud inventario de ropa</h2>
+        <form action="">
+          <label for="">ID</label>
+          <input type="text" class="form-control" name="id" [(ngModel)]="formulario.id">
+          <label for="">Nombre</label>
+          <input type="text" class="form-control" name="nombre" [(ngModel)]="formulario.nombre">
+          <label for="">Precio</label>
+          <input type="text" class="form-control" name="precio" [(ngModel)]="formulario.precio">
+          <button class="btn btn-primary mt-3" (click)="agregar()">Agregar</button>
+          <button class="btn btn-warning mt-3" (click)="actualizar()">Actualizar</button>
+
+
+        </form>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col">
+        <h2>Listado de productos</h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Eliminar</th>
+              <th>Seleccionar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let articulos of inventario">
+              <td>{{ articulos.id }}</td>
+              <td>{{ articulos.nombre }}</td>
+              <td>{{ articulos.precio }}</td>
+              <td>
+                <button class="btn btn-danger" (click)="eliminar(articulos.id)">
+                  Eliminar
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-info" (click)="seleccionar(articulos)">
+                  Actualizar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
